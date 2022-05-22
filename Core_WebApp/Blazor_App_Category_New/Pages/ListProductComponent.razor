@@ -1,0 +1,69 @@
+﻿@page "/Productlist"
+@using Blazor_App_Category_New.Models
+@inject HttpClient httpClient
+@inject NavigationManager navigate
+<h3>List of Products</h3> 
+<h3>The New App</h3>
+<div class="container">
+    <button class="btn-link" @onclick="navigateToCreate">Add New Product</button>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product Row Id</th>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Discription Price</th>
+                <th>Price</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cat in products)
+           {
+               <tr>
+                   <td>@cat.ProductRowId</td>
+                   <td>@cat.ProductId</td>     
+                   <td>@cat.ProductName</td>
+                   <td>@cat.Description</td>
+                   <td>@cat.Price</td>
+                   <td>
+                       <button class="btn btn-warning"
+                        @onclick="()=>navigateToEdit(cat.ProductRowId)">Edit</button>
+                   </td>
+                    <td>
+                       <button class="btn btn-warning"
+                        @onclick="()=>navigateToDelete(cat.ProductRowId)">Delete</button>
+                   </td>
+               </tr>
+           }
+        </tbody>
+    </table>
+
+</div>
+
+@code {
+    List<Product> products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = new List<Product>();
+        products = await httpClient.GetFromJsonAsync<List<Product>>("https://localhost:7161/api/Product");  
+    }
+
+    void navigateToCreate()
+    {
+        navigate.NavigateTo($"/createproduct");  
+    }
+    void navigateToEdit(int id)
+    {
+        navigate.NavigateTo($"/editproduct/{id}");  
+    }
+     void navigateToDelete(int id)
+    {
+        navigate.NavigateTo($"/Deleteproduct/{id}");  
+    }
+}
+
+
+
+

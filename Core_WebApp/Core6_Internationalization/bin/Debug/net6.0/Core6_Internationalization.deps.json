@@ -1,0 +1,34 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Core6_Internationalization/1.0.0": {
+        "runtime": {
+          "Core6_Internationalization.dll": {}
+        },
+        "resources": {
+          "de/Core6_Internationalization.resources.dll": {
+            "locale": "de"
+          },
+          "en/Core6_Internationalization.resources.dll": {
+            "locale": "en"
+          },
+          "fr/Core6_Internationalization.resources.dll": {
+            "locale": "fr"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Core6_Internationalization/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

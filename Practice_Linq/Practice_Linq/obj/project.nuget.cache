@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "IWWP7nnJssVcGZAhHuovifSCy7m0DZ3jAzF/3jv/gJVv3iXKvdaVU3zUZynerp6xkesjLh4s+mkX0NfGVGzUQw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Coditas\\source\\repos\\Practice_Linq\\Practice_Linq\\Practice_Linq.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Coditas\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,56 @@
+﻿@page "/deleteproduct/{id:int}"
+@using  Blazor_App_Category_New.Models
+@inject HttpClient httpClient;
+@inject NavigationManager navigate;
+ <h4> Are You Sure Want To Delete This Product</h4>
+<div class="contaier">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product Row Id</th>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Discription Price</th>
+                <th>Price</th>
+
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                   <td>@product.ProductRowId</td>
+                   <td>@product.ProductId</td>
+                   <td>@product.ProductName</td>
+                   <td>@product.ProductRowId</td>
+                   <td>@product.Price</td>
+                   <td>
+                        <input type="button" value="Delete" class="btn btn-warning"
+             @onclick="Delete"/>
+            </td>
+            <td>
+                       <button class="btn btn-warning"
+                        @onclick="()=>navigateToProducts()">Back</button>
+                        </td>
+               </tr>
+               <div class="container">
+               </div>
+        </tbody>
+    </table>
+</div>
+@code {
+    [Parameter] public int id { get; set; }
+    Product product;
+    protected override async Task OnInitializedAsync()
+    {
+        product = new Product();
+        product = await httpClient.GetFromJsonAsync<Product>($"https://localhost:7161/api/Product/{id}");
+    }
+    async Task Delete()
+    {
+        var res = await httpClient.DeleteAsync($"https://localhost:7161/api/Product/{id}");
+        navigate.NavigateTo("/Productlist");
+    }
+       void navigateToProducts()
+    {
+        navigate.NavigateTo("/Productlist");
+    }
+}

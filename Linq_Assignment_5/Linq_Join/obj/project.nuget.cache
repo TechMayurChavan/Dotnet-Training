@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cqBZNK99YO/EJr+PqxvTn+R6ZsDWs77+t2hmHkrgO/3faOjca0xQeuH0OBC8MVeCR/wo2WGu+LWIOhD5XxuSzA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Coditas\\source\\repos\\Linq_Assignment_5\\Linq_Join\\Linq_Join.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Coditas\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

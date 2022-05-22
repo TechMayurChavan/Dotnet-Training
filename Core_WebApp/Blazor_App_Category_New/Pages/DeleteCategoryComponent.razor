@@ -1,0 +1,53 @@
+﻿@page "/delete/{id:int}"
+@using  Blazor_App_Category_New.Models
+@inject HttpClient httpClient;
+@inject NavigationManager navigate;
+ <h4> Are You Sure Want To Delete This Category</h4>
+<div class="contaier">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Category Row Id</th>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Base Price</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                   <td>@category.CategoryRowId</td>
+                   <td>@category.CategoryId</td>
+                   <td>@category.CategoryName</td>
+                   <td>@category.BasePrice</td>
+                   <td>
+                        <input type="button" value="Delete" class="btn btn-warning"
+             @onclick="Delete"/>
+            </td>
+            <td>
+                       <button class="btn btn-warning"
+                        @onclick="()=>navigateToCategories()">Back</button>
+                        </td>
+               </tr>
+               <div class="container">
+               </div>
+        </tbody>
+    </table>
+</div>
+@code {
+    [Parameter] public int id { get; set; }
+    Category category;
+    protected override async Task OnInitializedAsync()
+    {
+        category = new Category();
+        category = await httpClient.GetFromJsonAsync<Category>($"https://localhost:7161/api/Category/{id}");
+    }
+    async Task Delete()
+    {
+        var res = await httpClient.DeleteAsync($"https://localhost:7161/api/Category/{id}");
+        navigate.NavigateTo("/list");
+    }
+       void navigateToCategories()
+    {
+        navigate.NavigateTo("/list");
+    }
+}
